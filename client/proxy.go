@@ -5,7 +5,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/jpillora/chisel/share"
+	"github.com/asperitus/tunnel/share"
 )
 
 type tcpProxy struct {

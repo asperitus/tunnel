@@ -1,0 +1,56 @@
+{
+	"ImportPath": "github.com/asperitus/tunnel",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/andrew-d/go-termutil",
+			"Rev": "009166a695a2f516c749a26b4ac1f183d89aa336"
+		},
+		{
+			"ImportPath": "github.com/armon/go-socks5",
+			"Rev": "e75332964ef517daa070d7c38a9466a0d687e0a5"
+		},
+		{
+			"ImportPath": "github.com/gorilla/websocket",
+			"Comment": "v1.1.0-29-ga91eba7",
+			"Rev": "a91eba7f97777409bc2c443f5534d41dd20c5720"
+		},
+		{
+			"ImportPath": "github.com/jpillora/ansi",
+			"Rev": "f496b27cd669dffb23ce87577824f749f6a8dae9"
+		},
+		{
+			"ImportPath": "github.com/jpillora/backoff",
+			"Rev": "06c7a16c845dc8e0bf575fafeeca0f5462f5eb4d"
+		},
+		{
+			"ImportPath": "github.com/jpillora/requestlog",
+			"Rev": "86703d0d0f95a393137e71e94606c2a8c04e8c4f"
+		},
+		{
+			"ImportPath": "github.com/jpillora/sizestr",
+			"Rev": "e2ea2fa42fb952f895ab2029f26d3a73b0d56eb3"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/curve25519",
+			"Rev": "5a033cc77e57eca05bdb50522851d29e03569cbe"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ed25519",
+			"Rev": "5a033cc77e57eca05bdb50522851d29e03569cbe"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ed25519/internal/edwards25519",
+			"Rev": "5a033cc77e57eca05bdb50522851d29e03569cbe"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh",
+			"Rev": "5a033cc77e57eca05bdb50522851d29e03569cbe"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "feeb485667d1fdabe727840fe00adc22431bc86e"
+		}
+	]
+}

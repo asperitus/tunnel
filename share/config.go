@@ -3,6 +3,7 @@ package chshare
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 type Config struct {
@@ -16,6 +17,18 @@ func DecodeConfig(b []byte) (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Invalid JSON config")
 	}
+	fmt.Sprintf("DecodeConfig %v", c)
+
+	r := &Remote{}
+	r.RemoteHost = os.Getenv("SERVER_HOST")
+	r.RemotePort = os.Getenv("SERVER_PORT")
+	r.LocalHost = c.Remotes[0].LocalHost
+	r.LocalPort = c.Remotes[0].LocalPort
+
+	c.Remotes = []*Remote{r}
+
+	fmt.Sprintf("DecodeConfig %v", c)
+
 	return c, nil
 }
 

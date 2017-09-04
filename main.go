@@ -8,19 +8,19 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/jpillora/chisel/client"
-	"github.com/jpillora/chisel/server"
-	chshare "github.com/jpillora/chisel/share"
+	"github.com/asperitus/tunnel/client"
+	"github.com/asperitus/tunnel/server"
+	chshare "github.com/asperitus/tunnel/share"
 )
 
 var help = `
-  Usage: chisel [command] [--help]
+  Usage: tunnel [command] [--help]
 
   Version: ` + chshare.BuildVersion + `
 
   Commands:
-    server - runs chisel in server mode
-    client - runs chisel in client mode
+    server - runs tunnel in server mode
+    client - runs tunnel in client mode
 
   Read more:
     https://github.com/jpillora/chisel
@@ -77,13 +77,13 @@ var commonHelp = `
 
 func generatePidFile() {
 	pid := []byte(strconv.Itoa(os.Getpid()))
-	if err := ioutil.WriteFile("chisel.pid", pid, 0644); err != nil {
+	if err := ioutil.WriteFile("tunnel.pid", pid, 0644); err != nil {
 		log.Fatal(err)
 	}
 }
 
 var serverHelp = `
-  Usage: chisel server [options]
+  Usage: tunnel server [options]
 
   Options:
 
@@ -114,11 +114,11 @@ var serverHelp = `
     authfile with {"<user:pass>": [""]}.
 
     --proxy, Specifies another HTTP server to proxy requests to when
-    chisel receives a normal HTTP request. Useful for hiding chisel in
+    tunnel receives a normal HTTP request. Useful for hiding tunnel in
     plain sight.
 
     --socks5, Allows client to access the internal SOCKS5 proxy. See
-    chisel client --help for more information.
+    tunnel client --help for more information.
 ` + commonHelp
 
 func server(args []string) {
@@ -180,9 +180,9 @@ func server(args []string) {
 }
 
 var clientHelp = `
-  Usage: chisel client [options] <server> <remote> [remote] [remote] ...
+  Usage: tunnel client [options] <server> <remote> [remote] [remote] ...
 
-  <server> is the URL to the chisel server.
+  <server> is the URL to the tunnel server.
 
   <remote>s are remote connections tunnelled through the server, each of
   which come in the form:
@@ -203,7 +203,7 @@ var clientHelp = `
       socks
       5000:socks
 
-    *When the chisel server has --socks5 enabled, remotes can
+    *When the tunnel server has --socks5 enabled, remotes can
     specify "socks" in place of remote-host and remote-port.
     The default local host and port for a "socks" remote is
     127.0.0.1:1080. Connections to this remote will terminate
@@ -228,7 +228,7 @@ var clientHelp = `
     to '0s' (disabled).
 
     --proxy, An optional HTTP CONNECT proxy which will be used reach
-    the chisel server. Authentication can be specified inside the URL.
+    the tunnel server. Authentication can be specified inside the URL.
     For example, http://admin:password@my-server.com:8081
 ` + commonHelp
 

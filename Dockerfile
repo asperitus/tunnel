@@ -41,7 +41,7 @@ RUN set -ex \
 	&& git clone https://$PACKAGE.git $PACKAGE_DIR \
 	&& cd $PACKAGE_DIR \
 	&& go build \
-		-ldflags "-X github.com/jpillora/chisel/share.BuildVersion=$(git describe --abbrev=0 --tags)" \
+		-ldflags "-X github.com/asperitus/tunnel/share.BuildVersion=$(git describe --abbrev=0 --tags)" \
 		-o /usr/local/bin/$NAME \
 	&& apk del .build-deps \
 	&& rm -rf /no-pic.patch $GOPATH /usr/local/go
